@@ -1,0 +1,9 @@
+
+=== Tue Apr 12 12:55:06 2022
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ide.vscode from version 1.2.0 to 1.2.1
+  com.unity.test-framework from version 1.1.14 to 1.1.16
