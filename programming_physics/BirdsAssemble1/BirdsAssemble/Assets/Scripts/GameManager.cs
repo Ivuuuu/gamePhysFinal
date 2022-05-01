@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts;
 using System.Linq;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     public CameraFollow cameraFollow;
     int currentBirdIndex;
     public SlingShot slingshot;
+    public static bool win;
+    public GameObject winScreen;
     [HideInInspector]
     public static GameState CurrentGameState = GameState.Start;
     private List<GameObject> Bricks;
@@ -49,6 +52,9 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameState.Won:
+                win = true;
+                winScreen.SetActive(true);
+                break;
             case GameState.Lost:
                 if (Input.GetMouseButtonUp(0))
                 {
