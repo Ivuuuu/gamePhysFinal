@@ -20,6 +20,7 @@ public class Pig : MonoBehaviour
         
         if (col.gameObject.tag == "Bird")
         {
+            GetComponent<AudioSource>().volume = SoundController.Singleton.EffectVolume.Value * SoundController.Singleton.MasterVolume.Value;
             GetComponent<AudioSource>().Play();
             Destroy(gameObject);
         }
@@ -28,6 +29,7 @@ public class Pig : MonoBehaviour
             float damage = col.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude * 10;
             Health -= damage;
             if (damage >= 10)
+                GetComponent<AudioSource>().volume = SoundController.Singleton.EffectVolume.Value * SoundController.Singleton.MasterVolume.Value;
                 GetComponent<AudioSource>().Play();
 
             if (Health < ChangeSpriteHealth)

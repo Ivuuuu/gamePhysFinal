@@ -18,10 +18,12 @@ public class WinScreen : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void NextLevel()
-    {
-        levelSceneNumber++;
-        SceneManager.LoadScene(levelSceneNumber);
+	public void NextLevel() {
+		levelSceneNumber++;
+		if (SceneManager.GetSceneAt(SceneManager.GetActiveScene().buildIndex + 1) == null) {
+			SceneManager.LoadScene("StartMenu");
+		}
+	    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
     
     // Start is called before the first frame update

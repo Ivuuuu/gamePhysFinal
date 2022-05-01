@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
-    public CameraFollow cameraFollow;
+	public int nextlevel = 2;
+	public CameraFollow cameraFollow;
     int currentBirdIndex;
     public SlingShot slingshot;
     public static bool win;
@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
             case GameState.Won:
                 win = true;
                 winScreen.SetActive(true);
+                PlayerPrefs.SetInt("ReachedLevel", nextlevel);//When player plays game the first level is open.
                 break;
             case GameState.Lost:
                 if (Input.GetMouseButtonUp(0))
